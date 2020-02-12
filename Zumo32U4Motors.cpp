@@ -115,7 +115,7 @@ void Zumo32U4Motors::turnLeft(uint8_t percent)
 
 void Zumo32U4Motors::turnRight(uint8_t percent)
 {
-    setSpeeds(-percent * 4, -percent * 4);
+    setSpeeds(percent * 4, -percent * 4);
 }
 
 void Zumo32U4Motors::stop()

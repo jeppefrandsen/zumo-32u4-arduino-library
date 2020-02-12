@@ -274,7 +274,7 @@ void ledDemo()
 void printBar(uint8_t height)
 {
   if (height > 8) { height = 8; }
-  static const char barChars[] = {' ', 0, 1, 2, 3, 4, 5, 6, 255};
+  static const uint8_t barChars[] = {' ', 0, 1, 2, 3, 4, 5, 6, 255};
   lcd.print(barChars[height]);
 }
 
@@ -288,7 +288,6 @@ void lineSensorDemo()
   lcd.print('C');
 
   uint16_t lineSensorValues[3];
-  char c;
 
   while (buttonMonitor() != 'B')
   {
@@ -598,7 +597,7 @@ void musicDemo()
 {
   displayBackArrow();
 
-  uint8_t fugueTitlePos = 0;
+  size_t fugueTitlePos = 0;
   uint16_t lastShiftTime = millis() - 2000;
 
   while (buttonMonitor() != 'B')
@@ -616,7 +615,7 @@ void musicDemo()
       }
       fugueTitlePos++;
 
-      if (fugueTitlePos + 8 >= strlen(fugueTitle))
+      if ((fugueTitlePos + 8) >= strlen(fugueTitle))
       {
         fugueTitlePos = 0;
       }
