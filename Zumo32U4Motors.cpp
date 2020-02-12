@@ -97,3 +97,28 @@ void Zumo32U4Motors::setSpeeds(int16_t leftSpeed, int16_t rightSpeed)
   setLeftSpeed(leftSpeed);
   setRightSpeed(rightSpeed);
 }
+
+void Zumo32U4Motors::forward(uint8_t percent)
+{
+    setSpeeds(percent * 4, percent * 4);
+}
+
+void Zumo32U4Motors::reverse(uint8_t percent)
+{
+    setSpeeds(-percent * 4, -percent * 4);
+}
+
+void Zumo32U4Motors::turnLeft(uint8_t percent)
+{
+    setSpeeds(-percent * 4, percent * 4);
+}
+
+void Zumo32U4Motors::turnRight(uint8_t percent)
+{
+    setSpeeds(-percent * 4, -percent * 4);
+}
+
+void Zumo32U4Motors::stop()
+{
+    setSpeeds(0, 0);
+}

@@ -61,6 +61,29 @@ class Zumo32U4Motors
      * reverse, and values of 400 or more result in full speed forward. */
     static void setSpeeds(int16_t leftSpeed, int16_t rightSpeed);
 
+    /** \brief Sets the forward speed of both motors.
+     *
+     * \param percentA The speed in percent */
+    static void forward(uint8_t percent);
+
+    /** \brief Sets the reverse speed of both motors.
+     *
+     * \param percentA The speed in percent */
+    static void reverse(uint8_t percent);
+
+    /** \brief Sets the speed of both motors to make it turn left.
+     *
+     * \param percentA The speed in percent */
+    static void turnLeft(uint8_t percent);
+
+    /** \brief Sets the speed of both motors to make it turn right.
+     *
+     * \param percentA The speed in percent */
+    static void turnRight(uint8_t percent);
+
+    /** \brief Stops both motors. */
+    static void stop();
+
   private:
 
     static inline void init()

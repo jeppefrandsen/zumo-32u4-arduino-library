@@ -25,6 +25,24 @@
 #include <Zumo32U4Motors.h>
 #include <Zumo32U4ProximitySensors.h>
 
+/*! \brief Main class for controlling the Zumo 32U4. */
+class Zumo32U4
+{
+public:
+    Zumo32U4()
+    {
+        lineSensors.initThreeSensors();
+    }
+    
+    Zumo32U4LCD lcd;
+    Zumo32U4ButtonA buttonA;
+    Zumo32U4ButtonB buttonB;
+    Zumo32U4ButtonC buttonC;
+    Zumo32U4Buzzer buzzer;
+    Zumo32U4Motors motors;
+    Zumo32U4LineSensors lineSensors;
+};
+
 // TODO: servo support
 
 /*! \brief Turns the red user LED (RX) on or off.
