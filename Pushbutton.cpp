@@ -107,6 +107,11 @@ void PushbuttonBase::waitForButton()
   waitForRelease();
 }
 
+void PushbuttonBase::wait()
+{
+  waitForButton();
+}
+
 bool PushbuttonBase::getSingleDebouncedPress()
 {
   return pressState.getSingleDebouncedRisingEdge(isPressed());

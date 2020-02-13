@@ -4,19 +4,16 @@ backs up and turns. */
 
 #include <Zumo32U4.h>
 
-#define LINE_SENSOR_THRESHOLD 1000
-
 Zumo32U4 zumo;
 
-void waitForButtonAndCountDown()
+void setup()
 {
-  ledYellow(true);
+  zumo.ledYellow.on();
   zumo.lcd.clear();
   zumo.lcd.print(F("Press A"));
+  zumo.buttonA.wait();
 
-  zumo.buttonA.waitForButton();
-
-  ledYellow(false);
+  zumo.ledYellow.off();
   zumo.lcd.clear();
 
   for (int i = 0; i < 3; i++)
@@ -29,25 +26,16 @@ void waitForButtonAndCountDown()
   delay(1000);
 }
 
-void setup()
-{
-  waitForButtonAndCountDown();
-}
-
 void loop()
 {
-  static unsigned int lineSensorValues[3];
-
   if (zumo.buttonA.isPressed())
   {
     zumo.motors.stop();
     zumo.buttonA.waitForRelease();
-    waitForButtonAndCountDown();
+    setup();
   }
 
-  zumo.lineSensors.read(lineSensorValues);
-
-  if (lineSensorValues[0] < LINE_SENSOR_THRESHOLD)
+  if (zumo.lineSensors.isLeftSensorWhite())
   {
     zumo.motors.reverse(50);
     delay(200);
@@ -55,7 +43,7 @@ void loop()
     delay(300);
     zumo.motors.forward(50);
   }
-  else if (lineSensorValues[2] < LINE_SENSOR_THRESHOLD)
+  else if (zumo.lineSensors.isRightSensorWhite())
   {
     zumo.motors.reverse(50);
     delay(200);

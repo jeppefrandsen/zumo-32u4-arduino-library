@@ -91,6 +91,12 @@ public:
    * This is equivalent to calling waitForPress() and then waitForRelease(). */
   void waitForButton();
 
+  /*! \brief Waits until the button is pressed and then waits until the button
+   *  is released, taking care of debouncing.
+   *
+   * This is equivalent to calling waitForButton() */
+  void wait();
+
   /*! \brief Uses a state machine to return true once after each time it detects
    *  the button moving from the released state to the pressed state.
    *

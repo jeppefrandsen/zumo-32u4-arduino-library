@@ -102,6 +102,22 @@ void QTRSensors::read(unsigned int *sensor_values, unsigned char readMode)
     }
 }
 
+void QTRSensors::setWhiteThreshold(unsigned int threshold)
+{
+    _whiteThreshold = threshold;
+}
+
+bool QTRSensors::isLeftSensorWhite()
+{
+    read(_values);
+    return (_values[0] < _whiteThreshold);
+}
+
+bool QTRSensors::isRightSensorWhite()
+{
+    read(_values);
+    return (_values[_numSensors - 1] < _whiteThreshold);
+}
 
 // Turn the IR LEDs off and on.  This is mainly for use by the
 // read method, and calling these functions before or

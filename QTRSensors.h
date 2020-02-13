@@ -65,6 +65,15 @@ class QTRSensors
     // overridden by each derived class's own implementation.
     void read(unsigned int *sensor_values, unsigned char readMode = QTR_EMITTERS_ON);
 
+    // Sets the max threshold for white detection.
+    void setWhiteThreshold(unsigned int threshold);
+
+    // Returns true if the left sensor is white.
+    bool isLeftSensorWhite();
+
+    // Returns true if the right sensor is white.
+    bool isRightSensorWhite();
+
     // Turn the IR LEDs off and on.  This is mainly for use by the
     // read method, and calling these functions before or
     // after the reading the sensors will have no effect on the
@@ -142,6 +151,8 @@ class QTRSensors
     unsigned char _emitterPin;
     unsigned int _maxValue; // the maximum value returned by this function
     int _lastValue;
+    unsigned int _values[QTR_MAX_SENSORS];
+    unsigned int _whiteThreshold = 1000;
 
   private:
 

@@ -21,6 +21,7 @@
 #include <Zumo32U4Encoders.h>
 #include <Zumo32U4IRPulses.h>
 #include <Zumo32U4LCD.h>
+#include <Zumo32U4LEDs.h>
 #include <Zumo32U4LineSensors.h>
 #include <Zumo32U4Motors.h>
 #include <Zumo32U4ProximitySensors.h>
@@ -35,6 +36,9 @@ public:
     }
     
     Zumo32U4LCD lcd;
+    Zumo32U4LEDRed ledRed;
+    Zumo32U4LEDYellow ledYellow;
+    Zumo32U4LEDGreen ledGreen;
     Zumo32U4ButtonA buttonA;
     Zumo32U4ButtonB buttonB;
     Zumo32U4ButtonC buttonC;
