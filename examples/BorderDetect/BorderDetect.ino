@@ -41,7 +41,6 @@ void loop()
     delay(200);
     zumo.motors.turnRight(50);
     delay(300);
-    zumo.motors.forward(50);
   }
   else if (zumo.lineSensors.isRightSensorWhite())
   {
@@ -49,10 +48,7 @@ void loop()
     delay(200);
     zumo.motors.turnLeft(50);
     delay(300);
-    zumo.motors.forward(50);
   }
-  else
-  {
-    zumo.motors.forward(50);
-  }
+
+  zumo.motors.forward(100);
 }
