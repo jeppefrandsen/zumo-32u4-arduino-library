@@ -490,6 +490,24 @@ public:
         return readBasic(findIndexForPin(SENSOR_RIGHT));
     }
 
+    /** \brief Indicates if something has been detected to the left. */
+    bool left()
+    {
+        return (countsLeftWithLeftLeds() > 1);
+    }
+
+    /** \brief Indicates if something has been detected in the front. */
+    bool front()
+    {
+        return ((countsFrontWithLeftLeds() > 1) || (countsFrontWithRightLeds() > 1));
+    }
+
+    /** \brief Indicates if something has been detected to the right. */
+    bool right()
+    {
+        return (countsRightWithRightLeds() > 1);
+    }
+
 private:
 
     void clearAll();

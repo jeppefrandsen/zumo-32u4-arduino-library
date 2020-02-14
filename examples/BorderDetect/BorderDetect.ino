@@ -50,5 +50,5 @@ void loop()
     delay(300);
   }
 
-  zumo.motors.forward(100);
+  zumo.motors.forward(50);
 }

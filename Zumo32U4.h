@@ -33,6 +33,7 @@ public:
     Zumo32U4()
     {
         lineSensors.initThreeSensors();
+        proximitySensors.initThreeSensors();
     }
     
     Zumo32U4LCD lcd;
@@ -45,6 +46,7 @@ public:
     Zumo32U4Buzzer buzzer;
     Zumo32U4Motors motors;
     Zumo32U4LineSensors lineSensors;
+    Zumo32U4ProximitySensors proximitySensors;
 };
 
 // TODO: servo support
