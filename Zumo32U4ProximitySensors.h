@@ -490,22 +490,34 @@ public:
         return readBasic(findIndexForPin(SENSOR_RIGHT));
     }
 
-    /** \brief Indicates if something has been detected to the left. */
-    bool left()
+    /** \brief Returns the number of brightness levels for the left sensor. */
+    uint8_t leftCount()
     {
-        return (countsLeftWithLeftLeds() > 1);
+        return countsLeftWithLeftLeds();
     }
 
-    /** \brief Indicates if something has been detected in the front. */
-    bool front()
+    /** \brief Returns the number of brightness levels for the front left sensor. */
+    uint8_t frontLeftCount()
     {
-        return ((countsFrontWithLeftLeds() > 1) || (countsFrontWithRightLeds() > 1));
+        return countsFrontWithLeftLeds();
     }
 
-    /** \brief Indicates if something has been detected to the right. */
-    bool right()
+    /** \brief Returns the number of brightness levels for the front right sensor. */
+    uint8_t frontRightCount()
     {
-        return (countsRightWithRightLeds() > 1);
+        return countsFrontWithRightLeds();
+    }
+
+    /** \brief Returns the number of brightness levels for the front sensor. */
+    uint8_t frontCount()
+    {
+        return (frontLeftCount() + frontRightCount());
+    }
+
+    /** \brief Returns the number of brightness levels for the left sensor. */
+    uint8_t rightCount()
+    {
+        return countsRightWithRightLeds();
     }
 
 private:
